@@ -11,7 +11,7 @@ function trocarCor() {
         corAtual = 2;
     } else {
         for (let i = 0; i <cor.length; i++) {
-            cor[i].style.backgroundColor = "black";
+            cor[i].style.backgroundColor = "#534b4b";
         }
         corAtual = 1;
     }
