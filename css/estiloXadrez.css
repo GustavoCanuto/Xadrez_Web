@@ -1,0 +1,54 @@
+
+
+#container{
+    border: solid 1px rgb(233, 21, 21);
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+.tabuleiro {
+    border: solid 1px black;
+    width: 80%; 
+    max-width: 500px;
+
+}
+
+.linha {
+    display: flex;
+    width: 100%; 
+    height: 100%;
+}
+
+.branca, .preta {
+    width: 12.5%; 
+    padding-bottom: 12.5%; 
+}
+
+.branca {
+    background-color: white;
+}
+
+.preta {
+    background-color: #000;
+}
+
+/* Adicione uma regra @media para tornar o design responsivo */
+@media (max-width: 700px) {
+
+
+    .tabuleiro {
+        border: solid 1px black;
+        width: 100px; 
+    }
+
+   
+}
+
+
+
+
+
+
