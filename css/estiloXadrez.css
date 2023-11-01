@@ -3,6 +3,7 @@
 #container{
     border: solid 1px rgb(233, 21, 21);
     width: 100%; 
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,13 +37,26 @@
 }
 
 /* Adicione uma regra @media para tornar o design responsivo */
-@media (max-width: 700px) {
-
+@media (max-height: 500px) {
 
     .tabuleiro {
         border: solid 1px black;
-        width: 100px; 
+        width: 250px; 
     }
+
+    @media (max-height: 300px) {
+
+        .tabuleiro {
+            border: solid 1px black;
+            width: 100px; 
+        }
+
+        @media (max-height: 100px) {
+
+            .tabuleiro {
+                border: solid 1px black;
+                width: 50px; 
+            }
 
    
 }
