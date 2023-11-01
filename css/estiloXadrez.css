@@ -1,26 +1,29 @@
-#botaoTrocarCor{
-  position: absolute;
-  bottom: 10px; 
-  right: 10px;
-
-}
 
 #container{
     border: solid 1px rgb(233, 21, 21);
     width: 100%; 
-    height: 98vh;
+    height: 90vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
 
 }
 .tabuleiro {
+    display: flex;
+    flex-direction: column;
     border: solid 1px black;
     width: 80%; 
-    max-width: 500px;
+    max-width: 480px;
 
 }
+
+#botaoTrocarCor{
+    width: auto;
+
+}
+
 
 .linha {
     display: flex;
@@ -61,6 +64,12 @@
             .tabuleiro {
                 border: solid 1px black;
                 width: 50px; 
+            }
+
+            #botaoTrocarCor{
+
+                width: 60px;
+                font-size: 0.3rem;           
             }
 
    
