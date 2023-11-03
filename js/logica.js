@@ -18,3 +18,24 @@ function trocarCor() {
 }
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    const menuSandwich = document.getElementById('menuSandwich');
+    const menuLateral = document.getElementById('menuLateral');
+    const fecharMenu = document.getElementById('fecharMenu');
+
+    menuSandwich.addEventListener('click', function () {
+        if (menuLateral.style.display === 'none') {
+            menuLateral.style.display = 'block';
+            fecharMenu.style.display = 'block';
+        } else {
+            menuLateral.style.display = 'none';
+            fecharMenu.style.display = 'none';
+        }
+    });
+
+    fecharMenu.addEventListener('click', function () {
+        menuLateral.style.display = 'none';
+        fecharMenu.style.display = 'none';
+        menuSandwich.style.display = 'block';
+    });
+});

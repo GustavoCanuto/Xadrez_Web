@@ -1,70 +1,86 @@
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-
-#container{
-    
-    border: solid 1px rgb(233, 21, 21);
-    width: 100%; 
+#container {
     height: 100vh;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-
+    justify-content: center;
+    border: 1px solid rgb(233, 21, 21);
 }
-.tabuleiro {
+
+.menu-lateral {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: fit-content;
+    background-color: #f0f0f0; 
+    height: 100vh; 
+
+    
+}
+
+ #options{
     display: flex;
     flex-direction: column;
-    border: solid 1px black;
-    width: 80%; 
-   
-    max-width: 480px;
+ }
 
+.menu-sandwich {
+    display: none; 
+    position: absolute;
+    top: 0;
+    left: 0.1%;
+    height: 100vh;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
 
 #botaoTrocarCor{
-    width: auto;
-    align-self: flex-start;
-    margin-bottom: 10px;
+
+    font-size: 1rem; 
+    margin: 0.5rem;
 
 }
 
+.fechar-menu {
+ 
+    text-align: center;
+    font-size: 1rem;
+    margin: 0.5rem;
+    
+
+}
+
+
+.tabuleiro {
+    
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 80vmin; 
+    max-width: 580px;
+    aspect-ratio: 1/1;
+}
 
 .linha{
     display: flex;
-    width: 100%;
+    height: 12.5%;
  
 }
-
 
 .branca, .preta {
-    
-   width: 12.5%;
-   height: 0;
-   padding-bottom: 12.5%;
-   display: flex;
-    justify-content: center;
-    align-items: center;
- 
-    
-}
-  
-.pecas{
-    position: relative;
-    z-index: 1;
-    margin: auto;
-    width: 70%;
-    height: auto;
-  
+     width: 12.5%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
      
-}
-  
+ }
+ 
 .branca {
     background-color: white;
 }
@@ -73,37 +89,91 @@
     background-color: #534b4b;
 }
 
-@media (max-height: 500px) {
 
-    .tabuleiro {
-        border: solid 1px black;
-        width: 250px; 
-    }
 
-    @media (max-height: 300px) {
-
-        .tabuleiro {
-            border: solid 1px black;
-            width: 130px; 
-        }
-    }
-        @media (max-height: 130px) {
-
-            .tabuleiro {
-                border: solid 1px black;
-                width: 50px; 
-            }
-        }
-            #botaoTrocarCor{
-
-                width: 60px;
-                font-size: 0.3rem;           
-            }
-
+.pecas{
+    width: 80%;
+    height: 80%;
    
+  
 }
 
+.cor-vermelha {
+    fill: red; /* Define a cor de preenchimento como vermelho */
+    stroke: blue; /* Define a cor da borda como azul (se necessário) */
+}
 
+@media (max-width: 520px) {
+    .menu-lateral {
+        display: none; 
+    }
+
+    .menu-sandwich {
+        display: block; 
+        font-size: 1rem;
+        
+    }
+
+    #botaoTrocarCor{
+        font-size: 0.5rem;
+        margin: 0.2rem;
+    
+    }
+ 
+    .fechar-menu {
+        font-size: 0.5rem;
+        margin: 0.2rem;
+    }
+
+}
+@media (max-width: 380px) {
+    .menu-lateral {
+        display: none; 
+    }
+
+    .menu-sandwich {
+        display: block; 
+        font-size: 1rem;
+        
+        
+    }
+
+    #botaoTrocarCor{
+        font-size: 0.2rem;
+        margin: 0.2rem;
+    
+    }
+
+    .fechar-menu {
+        font-size: 0.2rem;
+        margin: 0.2rem;
+    }
+ 
+}
+
+@media (max-width: 312px) {
+    .menu-lateral {
+        display: none; 
+    }
+
+    .menu-sandwich {
+        display: block; 
+        font-size: 0.5rem;
+        
+    }
+
+    #botaoTrocarCor{
+        font-size: 0.1rem;
+        margin: 0.1rem;
+    
+    }
+
+    .fechar-menu {
+        font-size: 0.1rem;
+        margin: 0.1rem;
+    }
+ 
+}
 
 
 
