@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/estiloXadrez.css">
-    <script type="text/javascript" src="js/logica.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+    <script type="text/javascript" src="js/verificaPecas.js"></script>
+    <script type="text/javascript" src="js/calculoMovimentos.js"></script>
+    <script type="text/javascript" src="js/mainXadrez.js"></script>
     <title>Jogo Xadrez Magna</title>
    
 </head>
 <body>
-
-
-    
 
 <div id="container">
    
@@ -28,7 +28,7 @@
     </header>
 
     <div class="tabuleiro">
-        <div class="linha">
+        <div class="linha 8">
             <div class="branca" id="a8">
                  <img class ="pecas" src="img/pretas/torrePretas.svg" alt="torre pretas"/> 
             </div>
@@ -63,7 +63,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 7">
             <div class="preta" id="a7">
                 <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/> 
             </div>
@@ -98,7 +98,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 6">
             <div class="branca" id="a6"></div>
             <div class="preta" id="b6"></div>
 
@@ -113,7 +113,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 5">
             <div class="preta" id="a5"></div>
             <div class="branca" id="b5"></div>
 
@@ -128,7 +128,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 4">
             <div class="branca" id="a4"></div>
             <div class="preta" id="b4"></div>
 
@@ -143,7 +143,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 3">
             <div class="preta" id="a3"></div>
             <div class="branca" id="b3"></div>
 
@@ -158,7 +158,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 2">
             <div class="branca" id="a2">
                 <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
                
@@ -201,7 +201,7 @@
             
         </div>
 
-        <div class="linha">
+        <div class="linha 1">
             <div class="preta" id="a1">
                 <img  class ="pecas" src="img/brancas/torreBrancas.svg" alt="torre brancas"/>
                

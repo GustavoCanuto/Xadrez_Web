@@ -98,10 +98,15 @@
   
 }
 
-.cor-vermelha {
-    fill: red; /* Define a cor de preenchimento como vermelho */
-    stroke: blue; /* Define a cor da borda como azul (se necessário) */
-}
+.selecionada {
+    border: 2px solid red; /
+  }
+
+  .movimento-possivel {
+    background-color: yellow; 
+    border: 2px solid red; 
+  }
+
 
 @media (max-width: 520px) {
     .menu-lateral {
