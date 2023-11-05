@@ -1,60 +1,65 @@
-//variaveis
+
 let possiveisMovimentos = [];
-
-//main
-document.addEventListener("DOMContentLoaded", function() {
-
-    const divs = document.querySelectorAll(".tabuleiro > .linha > div");
-    let divSelecionada = null; 
+let casaSelecionada = null;
+let pecaSelecionada = null;
+let numeroFuncao;
 
 
-    divs.forEach(function(div) {
+document.addEventListener("DOMContentLoaded", function () {
 
-      div.addEventListener("click", function() {
+  const casas = document.querySelectorAll(".tabuleiro > .linha > div");
 
-        divs.forEach(function(div) {
+  casas.forEach(function (casa) {
 
-          div.classList.remove("selecionada");
-          div.classList.remove("movimento-possivel");
+    casa.addEventListener("click", function () {
 
-        });
-  
-        if (isCavalo(div)) {
-       
-        div.classList.add("selecionada");
-        divSelecionada = div;
+
+      if (!casa.classList.contains("movimento-possivel")) {
+
+        removeTodasMarcacoes(casas);
+
+      }
+
+      if (casa.classList.contains("movimento-possivel")) {
+
+        casaSelecionada = casa;
+        casa.appendChild(pecaSelecionada);
+        casaSelecionada.classList.remove("selecionada");
+        casaSelecionada = null;
+
+        removeTodasMarcacoes(casas);
+
+
+      }
+      else if (casa.querySelector("img")) {
+
+        casa.classList.add("selecionada");
+        casaSelecionada = casa;
+        pecaSelecionada = casaSelecionada.querySelector("img");
         possiveisMovimentos = [];
 
-        calcularPossiveisMovimentos(div);
-            possiveisMovimentos.forEach(function(id) {
-                const div = document.getElementById(id);
-                if (div) {
-                  div.classList.add("movimento-possivel");
-                 
-                }
-              });
-    
+        numeroFuncao = verificaPeca(pecaSelecionada);
+
+        calculoPosicoes[numeroFuncao](casa);
+
+        possiveisMovimentos.forEach(function (id) {
+
+          const casa = document.getElementById(id);
+
+          if (casa) {
+
+            casa.classList.add("movimento-possivel");
+
           }
+        }
+        );
 
-        if (div.querySelector("img")) {
+      }
 
-          div.classList.add("selecionada");
-          divSelecionada = div;
 
-        } else if (divSelecionada && !div.querySelector("img")) {
-    
-          const pecaSelecionada = divSelecionada.querySelector("img");
-          div.appendChild(pecaSelecionada);
-          divSelecionada.classList.remove("selecionada");
-          divSelecionada = null; 
-  
-        // const divID = div.id;
-        // const linha = div.parentElement.classList[1];
-  
-        // alert("Foi clicado na div de ID: " + divID + " na linha " + linha);
 
-    }
-});
-});
-});
+    });
 
+  }); 
+
+}); 
