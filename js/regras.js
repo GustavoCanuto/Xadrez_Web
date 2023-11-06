@@ -77,7 +77,7 @@ function movimentosValidosEmCheck(possiveisMovimentos, casa) {
     if (!isCheck(jogador[turno])) {
       movimentosProtegemRei.push(id);
     }
-    console.log(movimentosProtegemRei);
+    
 
     casaDestino.removeChild(pecaOrigem);
     casaOrigem.appendChild(pecaOrigem);
@@ -179,9 +179,7 @@ function promoverPeao(pecaEscolhida, casa){
   
   
   verificaEstadoJogo();
-   
- 
-
+  
 
 }
 
