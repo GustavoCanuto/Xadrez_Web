@@ -8,7 +8,9 @@
     <script type="text/javascript" src="js/menu.js"></script>
     <script type="text/javascript" src="js/verificaPecas.js"></script>
     <script type="text/javascript" src="js/calculoMovimentos.js"></script>
+    <script type="text/javascript" src="js/regras.js"></script>
     <script type="text/javascript" src="js/mainXadrez.js"></script>
+    
     <title>Jogo Xadrez Magna</title>
    
 </head>
@@ -21,10 +23,19 @@
     <header class="menu-lateral" id="menuLateral" >
         <nav id="options">
             <button class="fechar-menu" id="fecharMenu">Fechar</button>
-            <input type="button" value="Trocar cor tabuleiro" id="botaoTrocarCor"  onclick="trocarCor()"> 
-          
+            <button  id="botaoTrocarCor" onclick="trocarCor()">Trocar cor tabuleiro</button>
+            <button  id="novoJogo" onclick="novoJogo()">Novo jogo</button>
+            
+            
+            
            
         </nav>
+        <div class="informacoes">
+            <p > Informações do Jogo:</p>
+            <p > Vez das <span id="valorVezJogador"></span> </p>
+            <p> Pontuação Pretas: <span id="valorPontuacaoPretas"></span></p>
+            <p > Pontuação Brancas: <span id="valorPontuacaoBrancas"></span></p>
+        </div>
     </header>
 
     <div class="tabuleiro">

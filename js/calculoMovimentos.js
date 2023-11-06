@@ -3,9 +3,9 @@ const letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 function calcularPossiveisMovimentosCavalo(casa) {
 
-  possiveisMovimentos = [];
+  let movimentos = [];
 
-  const movimentos = [
+   movimentos = [
     { coluna: - 2, linha: - 1 },
     { coluna: - 2, linha: + 1 },
     { coluna: - 1, linha: - 2 },
@@ -16,43 +16,45 @@ function calcularPossiveisMovimentosCavalo(casa) {
     { coluna: + 2, linha: + 1 }
   ];
 
-  criarPossiveisMovimentosFixos(movimentos, casa);
+  return criarPossiveisMovimentosFixos(movimentos, casa);
 
 }
 
 function calcularPossiveisMovimentosBispo(casa) {
-  possiveisMovimentos = [];
 
-  const movimentos = [
+  let movimentos = [];
+
+  movimentos = [
     { coluna: -1, linha: -1 },
     { coluna: 1, linha: -1 },
     { coluna: -1, linha: 1 },
     { coluna: 1, linha: 1 }
   ];
 
-  criarPossiveisMovimentosRepetidos(movimentos, casa);
+  return criarPossiveisMovimentosRepetidos(movimentos, casa);
 
 }
 
 function calcularPossiveisMovimentosTorre(casa) {
-  possiveisMovimentos = [];
 
 
-  const movimentos = [
+  let movimentos = [];
+
+   movimentos = [
     { coluna: 0, linha: -1 },
     { coluna: 0, linha: 1 },
     { coluna: -1, linha: 0 },
     { coluna: 1, linha: 0 }
   ];
 
-  criarPossiveisMovimentosRepetidos(movimentos, casa)
+  return criarPossiveisMovimentosRepetidos(movimentos, casa)
 }
 
 function calcularPossiveisMovimentosRainha(casa) {
 
-  possiveisMovimentos = [];
- 
-  const movimentos = [
+  let movimentos = [];
+
+   movimentos = [
 
     { coluna: -1, linha: -1 },
     { coluna: 1, linha: -1 },
@@ -66,15 +68,15 @@ function calcularPossiveisMovimentosRainha(casa) {
     { coluna: 1, linha: 0 }
   ];
 
-  criarPossiveisMovimentosRepetidos(movimentos, casa);
+  return criarPossiveisMovimentosRepetidos(movimentos, casa);
 
 }
 
 function calcularPossiveisMovimentosRei(casa) {
 
-  possiveisMovimentos = [];
+  let movimentos = [];
 
-  const movimentos = [
+   movimentos = [
     { coluna: -1, linha: -1 },
     { coluna: 0, linha: -1 },
     { coluna: 1, linha: -1 },
@@ -85,19 +87,20 @@ function calcularPossiveisMovimentosRei(casa) {
     { coluna: 1, linha: 1 }
   ];
 
-  criarPossiveisMovimentosFixos(movimentos, casa);
+  return criarPossiveisMovimentosFixos(movimentos, casa);
 
 }
 
 function calcularPossiveisMovimentosPeao(casa) {
 
-  possiveisMovimentos = [];
+  let possiveisMovimentos = [];
 
   const casaID = casa.id;
+  const pecaSelecionadaAtual = casa.querySelector("img");
   const coluna = casaID[0];
   const linha = parseInt(casaID[1]);
 
-  const direcao = (pecaSelecionada.alt.includes("brancas")) ? 1 : -1;
+  const direcao = (pecaSelecionadaAtual.alt.includes("brancas")) ? 1 : -1;
 
   const novaLinha = linha + direcao;
 
@@ -117,9 +120,8 @@ function calcularPossiveisMovimentosPeao(casa) {
   if (
     ((direcao === 1 && linha === 2) || (direcao === -1 && linha === 7)) &&
     !document.getElementById(coluna + (linha + 2 * direcao)).querySelector("img") &&
-    !document.getElementById(coluna + (linha + direcao)).querySelector("img") 
-  )
-   {
+    !document.getElementById(coluna + (linha + direcao)).querySelector("img")
+  ) {
     possiveisMovimentos.push(coluna + (linha + 2 * direcao));
   }
 
@@ -133,8 +135,7 @@ function calcularPossiveisMovimentosPeao(casa) {
 
     const pecaNaDiagonal = novaCasa.querySelector("img");
 
-    if (pecaNaDiagonal && isCorOposta(pecaNaDiagonal, pecaSelecionada))
-     {
+    if (pecaNaDiagonal && isCorOposta(pecaNaDiagonal, pecaSelecionadaAtual)) {
       possiveisMovimentos.push(novaCasaID);
     }
   }
@@ -148,16 +149,19 @@ function calcularPossiveisMovimentosPeao(casa) {
     const novaCasa = document.getElementById(novaCasaID);
     const pecaNaDiagonal = novaCasa.querySelector("img");
 
-    if (pecaNaDiagonal && isCorOposta(pecaNaDiagonal, pecaSelecionada)) 
-    {
+    if (pecaNaDiagonal && isCorOposta(pecaNaDiagonal, pecaSelecionadaAtual)) {
       possiveisMovimentos.push(novaCasaID);
     }
   }
+
+  return possiveisMovimentos;
+
 }
 
 function criarPossiveisMovimentosFixos(movimentos, casa) {
-
+  let possiveisMovimentos = []; 
   const casaID = casa.id;
+  const pecaSelecionadaAtual = casa.querySelector("img");
   const coluna = letras.indexOf(casaID[0]);
   const linha = parseInt(casaID[1]);
 
@@ -169,18 +173,21 @@ function criarPossiveisMovimentosFixos(movimentos, casa) {
       const novaCasaID = letras[colunaPossivel] + linhaPossivel;
       const novaCasa = document.getElementById(novaCasaID);
       const pecaNaNovaCasa = novaCasa.querySelector("img");
-
-      if (!pecaNaNovaCasa || isCorOposta(pecaNaNovaCasa, pecaSelecionada)) {
+      
+      if (!pecaNaNovaCasa || isCorOposta(pecaNaNovaCasa, pecaSelecionadaAtual)) {
         possiveisMovimentos.push(novaCasaID);
       }
     }
-  });
 
+    
+  });
+  return possiveisMovimentos;
 }
 
 function criarPossiveisMovimentosRepetidos(movimentos, casa) {
-
+  let possiveisMovimentos =[]; 
   const casaID = casa.id;
+  const pecaSelecionadaAtual = casa.querySelector("img");
   const coluna = letras.indexOf(casaID[0]);
   const linha = parseInt(casaID[1]);
 
@@ -195,7 +202,7 @@ function criarPossiveisMovimentosRepetidos(movimentos, casa) {
 
       if (!pecaNaNovaCasa) {
         possiveisMovimentos.push(novaCasaID);
-      } else if (isCorOposta(pecaNaNovaCasa, pecaSelecionada)) {
+      } else if (isCorOposta(pecaNaNovaCasa, pecaSelecionadaAtual)) {
         possiveisMovimentos.push(novaCasaID);
         break;
       } else {
@@ -205,8 +212,14 @@ function criarPossiveisMovimentosRepetidos(movimentos, casa) {
       colunaPossivel += movimento.coluna;
       linhaPossivel += movimento.linha;
     }
-  });
 
+
+    
+  }
+  
+  
+  );
+  return possiveisMovimentos;
 
 }
 
