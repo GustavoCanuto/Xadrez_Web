@@ -5,7 +5,7 @@ function calcularPossiveisMovimentosCavalo(casa) {
 
   let movimentos = [];
 
-   movimentos = [
+  movimentos = [
     { coluna: - 2, linha: - 1 },
     { coluna: - 2, linha: + 1 },
     { coluna: - 1, linha: - 2 },
@@ -40,7 +40,7 @@ function calcularPossiveisMovimentosTorre(casa) {
 
   let movimentos = [];
 
-   movimentos = [
+  movimentos = [
     { coluna: 0, linha: -1 },
     { coluna: 0, linha: 1 },
     { coluna: -1, linha: 0 },
@@ -54,7 +54,7 @@ function calcularPossiveisMovimentosRainha(casa) {
 
   let movimentos = [];
 
-   movimentos = [
+  movimentos = [
 
     { coluna: -1, linha: -1 },
     { coluna: 1, linha: -1 },
@@ -76,7 +76,7 @@ function calcularPossiveisMovimentosRei(casa) {
 
   let movimentos = [];
 
-   movimentos = [
+  movimentos = [
     { coluna: -1, linha: -1 },
     { coluna: 0, linha: -1 },
     { coluna: 1, linha: -1 },
@@ -159,7 +159,7 @@ function calcularPossiveisMovimentosPeao(casa) {
 }
 
 function criarPossiveisMovimentosFixos(movimentos, casa) {
-  let possiveisMovimentos = []; 
+  let possiveisMovimentos = [];
   const casaID = casa.id;
   const pecaSelecionadaAtual = casa.querySelector("img");
   const coluna = letras.indexOf(casaID[0]);
@@ -173,19 +173,19 @@ function criarPossiveisMovimentosFixos(movimentos, casa) {
       const novaCasaID = letras[colunaPossivel] + linhaPossivel;
       const novaCasa = document.getElementById(novaCasaID);
       const pecaNaNovaCasa = novaCasa.querySelector("img");
-      
+
       if (!pecaNaNovaCasa || isCorOposta(pecaNaNovaCasa, pecaSelecionadaAtual)) {
         possiveisMovimentos.push(novaCasaID);
       }
     }
 
-    
+
   });
   return possiveisMovimentos;
 }
 
 function criarPossiveisMovimentosRepetidos(movimentos, casa) {
-  let possiveisMovimentos =[]; 
+  let possiveisMovimentos = [];
   const casaID = casa.id;
   const pecaSelecionadaAtual = casa.querySelector("img");
   const coluna = letras.indexOf(casaID[0]);
@@ -214,10 +214,10 @@ function criarPossiveisMovimentosRepetidos(movimentos, casa) {
     }
 
 
-    
+
   }
-  
-  
+
+
   );
   return possiveisMovimentos;
 

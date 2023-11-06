@@ -6,33 +6,33 @@ let corAtual = 1;
 
 document.addEventListener('DOMContentLoaded', function () {
 
-peaoPretas = document.querySelector('img[alt="peão pretas"]');
-const torrePretas = document.querySelector('img[alt="torre pretas"]');
-const cavaloPretas = document.querySelector('img[alt="cavalo pretas"]');
-const bispoPretas = document.querySelector('img[alt="bispo pretas"]');
-const rainhaPretas = document.querySelector('img[alt="rainha pretas"]');
-const reiPretas = document.querySelector('img[alt="rei pretas"]');
+    peaoPretas = document.querySelector('img[alt="peão pretas"]');
+    const torrePretas = document.querySelector('img[alt="torre pretas"]');
+    const cavaloPretas = document.querySelector('img[alt="cavalo pretas"]');
+    const bispoPretas = document.querySelector('img[alt="bispo pretas"]');
+    const rainhaPretas = document.querySelector('img[alt="rainha pretas"]');
+    const reiPretas = document.querySelector('img[alt="rei pretas"]');
 
-realezaPretas = [torrePretas,cavaloPretas,bispoPretas,rainhaPretas,reiPretas,bispoPretas,cavaloPretas,torrePretas];
+    realezaPretas = [torrePretas, cavaloPretas, bispoPretas, rainhaPretas, reiPretas, bispoPretas, cavaloPretas, torrePretas];
 
-peaoBrancas = document.querySelector('img[alt="peão brancas"]');
-const torreBrancas = document.querySelector('img[alt="torre brancas"]');
-const cavaloBrancas = document.querySelector('img[alt="cavalo brancas"]');
-const bispoBrancas = document.querySelector('img[alt="bispo brancas"]');
-const rainhaBrancas = document.querySelector('img[alt="rainha brancas"]');
-const reiBrancas = document.querySelector('img[alt="rei brancas"]');
+    peaoBrancas = document.querySelector('img[alt="peão brancas"]');
+    const torreBrancas = document.querySelector('img[alt="torre brancas"]');
+    const cavaloBrancas = document.querySelector('img[alt="cavalo brancas"]');
+    const bispoBrancas = document.querySelector('img[alt="bispo brancas"]');
+    const rainhaBrancas = document.querySelector('img[alt="rainha brancas"]');
+    const reiBrancas = document.querySelector('img[alt="rei brancas"]');
 
-realezaBrancas = [torreBrancas,cavaloBrancas,bispoBrancas,rainhaBrancas,reiBrancas,bispoBrancas,cavaloBrancas,torreBrancas]
+    realezaBrancas = [torreBrancas, cavaloBrancas, bispoBrancas, rainhaBrancas, reiBrancas, bispoBrancas, cavaloBrancas, torreBrancas]
 
-atualizarInformacoesJogo();
+    atualizarInformacoesJogo();
 
 });
 
 function novoJogo() {
- pontuacaoBrancas =0;
- pontuacaoPretas =0;
- pontuacao=0;
- turno = 0;
+    pontuacaoBrancas = 0;
+    pontuacaoPretas = 0;
+    pontuacao = 0;
+    turno = 0;
 
     const casas = document.querySelectorAll(".tabuleiro > .linha > div");
 
@@ -47,13 +47,13 @@ function novoJogo() {
 
 
     linha2casas.forEach(function (casa) {
-  
+
         casa.appendChild(peaoBrancas.cloneNode(true));
     });
-   
+
 
     linha7casas.forEach(function (casa) {
-        
+
         casa.appendChild(peaoPretas.cloneNode(true));
     });
 
@@ -61,7 +61,7 @@ function novoJogo() {
 
     for (let i = 0; i < realezaPretas.length; i++) {
 
-    linha8casas[i].appendChild(realezaPretas[i].cloneNode(true));
+        linha8casas[i].appendChild(realezaPretas[i].cloneNode(true));
 
     }
 
@@ -69,7 +69,7 @@ function novoJogo() {
 
     for (let i = 0; i < realezaPretas.length; i++) {
 
-    linha1casas[i].appendChild(realezaBrancas[i].cloneNode(true));
+        linha1casas[i].appendChild(realezaBrancas[i].cloneNode(true));
 
     }
 
@@ -78,7 +78,7 @@ function novoJogo() {
 
 
 function trocarCor() {
-    
+
     const cor = document.getElementsByClassName("preta");
 
     if (corAtual === 1) {
@@ -87,7 +87,7 @@ function trocarCor() {
         }
         corAtual = 2;
     } else {
-        for (let i = 0; i <cor.length; i++) {
+        for (let i = 0; i < cor.length; i++) {
             cor[i].style.backgroundColor = "#534b4b";
         }
         corAtual = 1;
@@ -103,25 +103,25 @@ document.addEventListener('DOMContentLoaded', function () {
     menuSandwich.addEventListener('click', function () {
         if (menuLateral.style.display === 'none') {
 
-       
+
             menuLateral.style.display = 'flex';
-         
- 
-           
+
+
+
         } else {
             menuLateral.style.display = 'none';
-    
-   
-           
+
+
+
         }
     });
 
     fecharMenu.addEventListener('click', function () {
-        
+
         menuSandwich.style.display = 'block';
         menuLateral.style.display = 'none';
-   
-      
+
+
     });
 });
 
@@ -131,11 +131,11 @@ function verificarLarguraTela() {
     const menuSandwich = document.getElementById('menuSandwich');
 
     if (larguraTela < 818) {
-      
+
         menuLateral.style.display = 'none';
         menuSandwich.style.display = 'block';
     } else {
-    
+
         menuLateral.style.display = 'flex';
         menuSandwich.style.display = 'none';
     }

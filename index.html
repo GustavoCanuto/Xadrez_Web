@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,247 +11,249 @@
     <script type="text/javascript" src="js/calculoMovimentos.js"></script>
     <script type="text/javascript" src="js/regras.js"></script>
     <script type="text/javascript" src="js/mainXadrez.js"></script>
-    
+
     <title>Jogo Xadrez Magna</title>
-   
+
 </head>
+
 <body>
 
-<div id="container">
-   
-    <div class="menu-sandwich" id="menuSandwich">&#9776;</div>
+    <div id="container">
 
-    <header class="menu-lateral" id="menuLateral" >
-        <nav id="options">
-            <button class="fechar-menu" id="fecharMenu">Fechar</button>
-            <button  id="botaoTrocarCor" onclick="trocarCor()">Trocar cor tabuleiro</button>
-            <button  id="novoJogo" onclick="novoJogo()">Novo jogo</button>
-            
-            
-            
-           
-        </nav>
-        <div class="informacoes">
-            <p > Informações do Jogo:</p>
-            <p > Vez das <span id="valorVezJogador"></span> </p>
-            <p> Pontuação Pretas: <span id="valorPontuacaoPretas"></span></p>
-            <p > Pontuação Brancas: <span id="valorPontuacaoBrancas"></span></p>
+        <div class="menu-sandwich" id="menuSandwich">&#9776;</div>
+
+        <header class="menu-lateral" id="menuLateral">
+            <nav id="options">
+                <button class="fechar-menu" id="fecharMenu">Fechar</button>
+                <button id="botaoTrocarCor" onclick="trocarCor()">Trocar cor tabuleiro</button>
+                <button id="novoJogo" onclick="novoJogo()">Novo jogo</button>
+
+
+
+
+            </nav>
+            <div class="informacoes">
+                <p> Informações do Jogo:</p>
+                <p> Vez das <span id="valorVezJogador"></span> </p>
+                <p> Pontuação Pretas: <span id="valorPontuacaoPretas"></span></p>
+                <p> Pontuação Brancas: <span id="valorPontuacaoBrancas"></span></p>
+            </div>
+        </header>
+
+        <div class="tabuleiro">
+            <div class="linha 8">
+                <div class="branca" id="a8">
+                    <img class="pecas" src="img/pretas/torrePretas.svg" alt="torre pretas" />
+                </div>
+
+                <div class="preta" id="b8">
+                    <img class="pecas" src="img/pretas/cavaloPretas.svg" alt="cavalo pretas" />
+                </div>
+
+                <div class="branca" id="c8">
+                    <img class="pecas" src="img/pretas/bispoPretas.svg" alt="bispo pretas" />
+                </div>
+
+                <div class="preta" id="d8">
+                    <img class="pecas" src="img/pretas/rainhaPretas.svg" alt="rainha pretas" />
+                </div>
+
+                <div class="branca" id="e8">
+                    <img class="pecas" src="img/pretas/reiPretas.svg" alt="rei pretas" />
+                </div>
+
+                <div class="preta" id="f8">
+                    <img class="pecas" src="img/pretas/bispoPretas.svg" alt="bispo pretas" />
+                </div>
+
+                <div class="branca" id="g8">
+                    <img class="pecas" src="img/pretas/cavaloPretas.svg" alt="cavalo pretas" />
+                </div>
+
+                <div class="preta" id="h8">
+                    <img class="pecas" src="img/pretas/torrePretas.svg" alt="torre pretas" />
+                </div>
+
+            </div>
+
+            <div class="linha 7">
+                <div class="preta" id="a7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="branca" id="b7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="preta" id="c7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="branca" id="d7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="preta" id="e7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="branca" id="f7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="preta" id="g7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+                <div class="branca" id="h7">
+                    <img class="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas" />
+                </div>
+
+            </div>
+
+            <div class="linha 6">
+                <div class="branca" id="a6"></div>
+                <div class="preta" id="b6"></div>
+
+                <div class="branca" id="c6"></div>
+                <div class="preta" id="d6"></div>
+
+                <div class="branca" id="e6"></div>
+                <div class="preta" id="f6"></div>
+
+                <div class="branca" id="g6"></div>
+                <div class="preta" id="h6"></div>
+
+            </div>
+
+            <div class="linha 5">
+                <div class="preta" id="a5"></div>
+                <div class="branca" id="b5"></div>
+
+                <div class="preta" id="c5"></div>
+                <div class="branca" id="d5"></div>
+
+                <div class="preta" id="e5"></div>
+                <div class="branca" id="f5"></div>
+
+                <div class="preta" id="g5"></div>
+                <div class="branca" id="h5"></div>
+
+            </div>
+
+            <div class="linha 4">
+                <div class="branca" id="a4"></div>
+                <div class="preta" id="b4"></div>
+
+                <div class="branca" id="c4"></div>
+                <div class="preta" id="d4"></div>
+
+                <div class="branca" id="e4"></div>
+                <div class="preta" id="f4"></div>
+
+                <div class="branca" id="g4"></div>
+                <div class="preta" id="h4"></div>
+
+            </div>
+
+            <div class="linha 3">
+                <div class="preta" id="a3"></div>
+                <div class="branca" id="b3"></div>
+
+                <div class="preta" id="c3"></div>
+                <div class="branca" id="d3"></div>
+
+                <div class="preta" id="e3"></div>
+                <div class="branca" id="f3"></div>
+
+                <div class="preta" id="g3"></div>
+                <div class="branca" id="h3"></div>
+
+            </div>
+
+            <div class="linha 2">
+                <div class="branca" id="a2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="preta" id="b2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="branca" id="c2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="preta" id="d2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="branca" id="e2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="preta" id="f2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="branca" id="g2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+                <div class="preta" id="h2">
+                    <img class="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas" />
+
+                </div>
+
+            </div>
+
+            <div class="linha 1">
+                <div class="preta" id="a1">
+                    <img class="pecas" src="img/brancas/torreBrancas.svg" alt="torre brancas" />
+
+                </div>
+
+                <div class="branca" id="b1">
+                    <img class="pecas" src="img/brancas/cavaloBrancas.svg" alt="cavalo brancas" />
+
+                </div>
+
+                <div class="preta" id="c1">
+                    <img class="pecas" src="img/brancas/bispoBrancas.svg" alt="bispo brancas" />
+                </div>
+
+                <div class="branca" id="d1">
+                    <img class="pecas" src="img/brancas/rainhaBrancas.svg" alt="rainha brancas" />
+                </div>
+
+                <div class="preta" id="e1">
+                    <img class="pecas" src="img/brancas/reiBrancas.svg" alt="rei brancas" />
+                </div>
+
+                <div class="branca" id="f1">
+                    <img class="pecas" src="img/brancas/bispoBrancas.svg" alt="bispo brancas" />
+                </div>
+
+                <div class="preta" id="g1">
+                    <img class="pecas" src="img/brancas/cavaloBrancas.svg" alt="cavalo brancas" />
+                </div>
+
+                <div class="branca" id="h1">
+                    <img class="pecas" src="img/brancas/torreBrancas.svg" alt="torre brancas" />
+
+                </div>
+
+            </div>
+
         </div>
-    </header>
-
-    <div class="tabuleiro">
-        <div class="linha 8">
-            <div class="branca" id="a8">
-                 <img class ="pecas" src="img/pretas/torrePretas.svg" alt="torre pretas"/> 
-            </div>
-
-            <div class="preta" id="b8">
-                <img class ="pecas" src="img/pretas/cavaloPretas.svg" alt ="cavalo pretas"/>
-            </div>
-
-            <div class="branca" id="c8">
-                <img class ="pecas" src="img/pretas/bispoPretas.svg" alt ="bispo pretas"/>
-            </div>
-
-            <div class="preta" id="d8">
-                <img class ="pecas" src="img/pretas/rainhaPretas.svg" alt="rainha pretas"/>
-            </div>
-
-            <div class="branca" id="e8">
-                <img class ="pecas" src="img/pretas/reiPretas.svg" alt="rei pretas"/>
-            </div>
-
-            <div class="preta" id="f8">
-                <img class ="pecas" src="img/pretas/bispoPretas.svg" alt ="bispo pretas"/>
-            </div>
-
-            <div class="branca" id="g8">
-                <img class ="pecas" src="img/pretas/cavaloPretas.svg" alt ="cavalo pretas"/>
-            </div>
-
-            <div class="preta" id="h8">
-                <img class ="pecas" src="img/pretas/torrePretas.svg" alt="torre pretas"/> 
-            </div>
-            
-        </div>
-
-        <div class="linha 7">
-            <div class="preta" id="a7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/> 
-            </div>
-
-            <div class="branca" id="b7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/>  
-            </div>
-
-            <div class="preta" id="c7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/> 
-            </div>
-
-            <div class="branca" id="d7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/>  
-            </div>
-
-            <div class="preta" id="e7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/>  
-            </div>
-
-            <div class="branca" id="f7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/> 
-            </div>
-
-            <div class="preta" id="g7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/> 
-            </div>
-
-            <div class="branca" id="h7">
-                <img class ="pecas" src="img/pretas/peaoPretas.svg" alt="peão pretas"/> 
-            </div>
-            
-        </div>
-
-        <div class="linha 6">
-            <div class="branca" id="a6"></div>
-            <div class="preta" id="b6"></div>
-
-            <div class="branca" id="c6"></div>
-            <div class="preta" id="d6"></div>
-
-            <div class="branca" id="e6"></div>
-            <div class="preta" id="f6"></div>
-
-            <div class="branca" id="g6"></div>
-            <div class="preta" id="h6"></div>
-            
-        </div>
-
-        <div class="linha 5">
-            <div class="preta" id="a5"></div>
-            <div class="branca" id="b5"></div>
-
-            <div class="preta" id="c5"></div>
-            <div class="branca" id="d5"></div>
-
-            <div class="preta" id="e5"></div>
-            <div class="branca" id="f5"></div>
-
-            <div class="preta" id="g5"></div>
-            <div class="branca" id="h5"></div>
-            
-        </div>
-
-        <div class="linha 4">
-            <div class="branca" id="a4"></div>
-            <div class="preta" id="b4"></div>
-
-            <div class="branca" id="c4"></div>
-            <div class="preta" id="d4"></div>
-
-            <div class="branca" id="e4"></div>
-            <div class="preta" id="f4"></div>
-
-            <div class="branca" id="g4"></div>
-            <div class="preta" id="h4"></div>
-            
-        </div>
-
-        <div class="linha 3">
-            <div class="preta" id="a3"></div>
-            <div class="branca" id="b3"></div>
-
-            <div class="preta" id="c3"></div>
-            <div class="branca" id="d3"></div>
-
-            <div class="preta" id="e3"></div>
-            <div class="branca" id="f3"></div>
-
-            <div class="preta" id="g3"></div>
-            <div class="branca" id="h3"></div>
-            
-        </div>
-
-        <div class="linha 2">
-            <div class="branca" id="a2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-               
-            </div>
-
-            <div class="preta" id="b2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-                
-            </div>
-
-            <div class="branca" id="c2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-               
-            </div>
-
-            <div class="preta" id="d2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-              
-            </div>
-
-            <div class="branca" id="e2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-                
-            </div>
-
-            <div class="preta" id="f2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-               
-            </div>
-
-            <div class="branca" id="g2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-                
-            </div>
-
-            <div class="preta" id="h2">
-                <img  class ="pecas" src="img/brancas/peaoBrancas.svg" alt="peão brancas"/>
-               
-            </div>
-            
-        </div>
-
-        <div class="linha 1">
-            <div class="preta" id="a1">
-                <img  class ="pecas" src="img/brancas/torreBrancas.svg" alt="torre brancas"/>
-               
-            </div>
-
-            <div class="branca" id="b1">
-                <img  class ="pecas" src="img/brancas/cavaloBrancas.svg" alt="cavalo brancas"/>
-              
-            </div>
-
-            <div class="preta" id="c1">
-                <img  class ="pecas" src="img/brancas/bispoBrancas.svg" alt="bispo brancas"/>
-            </div>
-
-            <div class="branca" id="d1">
-                <img  class ="pecas" src="img/brancas/rainhaBrancas.svg" alt="rainha brancas"/>
-            </div>
-
-            <div class="preta" id="e1">
-                <img  class ="pecas" src="img/brancas/reiBrancas.svg" alt="rei brancas"/>
-            </div>
-
-            <div class="branca" id="f1">
-                <img  class ="pecas" src="img/brancas/bispoBrancas.svg" alt="bispo brancas"/>
-            </div>
-
-            <div class="preta" id="g1">
-                <img  class ="pecas" src="img/brancas/cavaloBrancas.svg" alt="cavalo brancas"/>
-            </div>
-
-            <div class="branca" id="h1">
-                <img  class ="pecas" src="img/brancas/torreBrancas.svg" alt="torre brancas"/>
-               
-            </div>
-            
-        </div>
-        
     </div>
-</div>
 </body>
+
 </html>

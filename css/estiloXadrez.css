@@ -13,7 +13,7 @@
     height: 100vh;
     font-size: 2rem;
     cursor: pointer;
-    
+
 }
 
 
@@ -35,7 +35,7 @@
 
 
 
-.informacoes> * {
+.informacoes>* {
     text-align: center;
     font-size: 1rem;
     margin: 0.5rem;
@@ -48,13 +48,13 @@
     width: fit-content;
     background-color: #f0f0f0;
     height: 100%;
-    display: flex ;
-    flex-direction: column ;
-    justify-content: space-between ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding-top: 1.2%;
     padding-bottom: 1.2%;
     overflow-y: auto;
-    
+
 
 }
 
@@ -126,7 +126,7 @@
         margin: 0.2rem;
     }
 
-    .informacoes> *  {
+    .informacoes>* {
 
         text-align: center;
         font-size: 0.9rem;
@@ -144,13 +144,13 @@
 
     .menu-sandwich {
         display: block;
-       
+
 
     }
 
     #options>* {
         font-size: 0.8rem;
-       padding: 2%;
+        padding: 2%;
         margin: 0.5rem;
     }
 
@@ -166,7 +166,7 @@
 
     .menu-sandwich {
         display: block;
-       
+
     }
 
     #options>* {
@@ -186,7 +186,7 @@
     #menuSandwich {
         display: block;
         font-size: 0.6rem;
-       
+
     }
 
     #options>* {
@@ -197,7 +197,7 @@
 }
 
 @media (max-height: 220px) {
- 
+
 
     #options>* {
         font-size: 0.6rem;
@@ -205,12 +205,10 @@
         margin: 0.1rem;
     }
 
-    .informacoes> *  {
+    .informacoes>* {
 
         text-align: center;
         font-size: 0.6rem;
         margin: 0.2rem;
     }
 }
-
-

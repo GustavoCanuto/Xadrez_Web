@@ -37,7 +37,7 @@ function removeTodasMarcacoes(casas) {
 function verificaPeca(pecaSelecionada) {
 
   let peca = pecaSelecionada.alt;
-  
+
   if (peca.includes("cavalo")) {
     pontuacao = 3;
     return 0;
@@ -69,29 +69,47 @@ function verificaPeca(pecaSelecionada) {
 
 function atribuiPontuacao(pecaSelecionadaAtual) {
 
- 
+
   verificaPeca(pecaSelecionadaAtual);
 
-  if(pecaSelecionadaAtual.alt.includes("brancas")){
+  if (pecaSelecionadaAtual.alt.includes("brancas")) {
     pontuacaoBrancas += pontuacao;
-  }else{
+  } else {
 
     pontuacaoPretas += pontuacao;
   }
 
-  
+
 
 }
 
-function trocaTurno(){
+function trocaTurno() {
 
-  if (jogador[turno]=="brancas"){
+  if (jogador[turno] == "brancas") {
     turno = 1;
   }
-  else{
+  else {
     turno = 0;
   }
-  
+
+}
+
+function verificaEstadoJogo() {
+
+  if (isCheck(jogador[turno]) && verificaSeExisteMovimentoValido(jogador[turno])) {
+
+    alert("check");
+
+  }
+  else if (isCheck(jogador[turno])) {
+
+    alert("Checkmate! O jogo terminou.");
+
+  } else if (!verificaSeExisteMovimentoValido(jogador[turno])) {
+
+    alert("Empate por afogamento!");
+  }
+
 }
 
 function atualizarInformacoesJogo() {
