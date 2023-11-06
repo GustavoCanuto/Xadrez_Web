@@ -11,20 +11,22 @@ function isCorOposta(pecaClicada, pecaSelecionada) {
   return corPecaClicada !== corPecaSelecionada;
 }
 
-
-function removeSelecionado(casaSelecionada) {
-
-  casaSelecionada.classList.remove("selecionada");
-
-
-}
-
 function removeTodasMarcacoes(casas) {
 
   casas.forEach(function (casa) {
 
-    casa.classList.remove("selecionada");
     casa.classList.remove("movimento-possivel");
+
+
+    if (pecaSelecionada) {
+      pecaSelecionada.classList.remove("selecionada");
+    }
+
+    if (pecaQueCaptura) {
+      pecaQueCaptura.classList.remove("selecionada");
+    }
+
+    
 
   }
 

@@ -5,6 +5,48 @@
 }
 
 
+.promoverPeao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(24, 23, 23, 0.849);
+    z-index: 1; 
+    
+    
+}
+
+.promover-pretas{
+    display: none;
+}
+
+.promover-brancas{
+    display: none;
+
+}
+
+.casasPromover {
+    width: 10%;
+    background: rgba(245, 245, 245, 0.979);
+    border: 1px solid black;
+ 
+}
+
+.casasPromover:hover {
+    background: rgba(252, 252, 252, 0.678); 
+    box-shadow: 0 0 0.3rem rgba(247, 200, 200, 0.884);
+}
+
+.pecasPromover {
+    width: 100%;
+    height: 100%;
+}
+
+
 .menu-sandwich {
     display: none;
     position: absolute;
@@ -94,11 +136,11 @@
 }
 
 .branca {
-    background-color: white;
+    background-color: white ;
 }
 
 .preta {
-    background-color: #534b4b;
+    background-color: #534b4b ;
 }
 
 
@@ -111,12 +153,18 @@
 }
 
 .selecionada {
-    border: 2px solid red;/
+   
+    border: 1px solid rgba(0, 0, 0, 0.151);
+    background-color:  rgba(51, 46, 46, 0.582) ;
+    border-radius: 50%; 
+
 }
 
 .movimento-possivel {
-    background-color: yellow !important;
-    border: 2px solid red;
+    background-color:  rgba(251, 255, 0, 0.493) !important;
+    border: 1px solid rgba(44, 45, 46, 0.582);
+    border-radius: 5%; 
+    box-shadow: 0 0 0.2rem rgba(145, 136, 41, 0.884);
 }
 
 @media (max-width: 900px) {

@@ -7,7 +7,7 @@ let pontuacao = 0;
 let jogador = ["brancas", "pretas"];
 let turno = 0;
 let possiveisMovimentos = [];
-
+let pecaQueCaptura;
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -30,16 +30,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        let pecaQueCaptura = pecaSelecionada;
+        pecaQueCaptura = pecaSelecionada;
         casaSelecionada = casa;
         pecaSelecionada = casaSelecionada.querySelector("img");
         atribuiPontuacao(pecaSelecionada);
+        
         casaSelecionada.removeChild(pecaSelecionada);
         casaSelecionada.appendChild(pecaQueCaptura);
+
+        verificarPromocaoPeao(casa, pecaQueCaptura);
+
+        removeTodasMarcacoes(casas);
+        
         trocaTurno();
+      
         verificaEstadoJogo();
         atualizarInformacoesJogo();
-        removeTodasMarcacoes(casas);
+       
 
 
 
@@ -49,12 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         casaSelecionada = casa;
         casa.appendChild(pecaSelecionada);
-        casaSelecionada.classList.remove("selecionada");
+        pecaSelecionada.classList.remove("selecionada");
         casaSelecionada = null;
+        verificarPromocaoPeao(casa, pecaSelecionada );
+        removeTodasMarcacoes(casas);
         trocaTurno();
         verificaEstadoJogo();
         atualizarInformacoesJogo();
-        removeTodasMarcacoes(casas);
+      
 
 
 
@@ -65,9 +74,10 @@ document.addEventListener("DOMContentLoaded", function () {
       else if (casa.querySelector("img").alt.includes(jogador[turno])) {
 
 
-        casa.classList.add("selecionada");
+
         casaSelecionada = casa;
         pecaSelecionada = casaSelecionada.querySelector("img");
+        pecaSelecionada.classList.add("selecionada");
 
         numeroFuncao = verificaPeca(pecaSelecionada);
 

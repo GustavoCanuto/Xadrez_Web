@@ -1,6 +1,7 @@
 let reiPosicao;
 let reiEmCheck = false;
 let movimentosProtegemRei = [];
+let divPromocao;
 
 function isCheck(corDoRei) {
 
@@ -20,8 +21,7 @@ function isCheck(corDoRei) {
 
       possiveisMovimentos = calculoPosicoes[numeroFuncao](casa);
 
-      console.log(casa);
-      console.log(possiveisMovimentos);
+     
 
 
       if (possiveisMovimentos.includes(reiPosicao)) {
@@ -116,3 +116,67 @@ function verificaSeExisteMovimentoValido(corDoRei) {
 }
 
 
+function verificarPromocaoPeao(casa, pecaSelecionada) {
+
+  if (pecaSelecionada && pecaSelecionada.alt.includes("peão") 
+  
+  ) {
+
+    const linhaCasa = parseInt(casa.id[1]);
+    if (( linhaCasa === 8) || (linhaCasa === 1)) {
+      exibirDivDePromocao(casa);
+    }
+  }
+}
+
+function exibirDivDePromocao(casa) {
+
+  const nomeClasse = `promover-${jogador[turno]}`;
+   divPromocao =  document.getElementsByClassName(nomeClasse)[0];
+
+  divPromocao.style.display = "flex";
+ 
+  const torrePromo = document.querySelector(`.casasPromover img[alt*='torre ${jogador[turno]}']`);
+  const cavaloPromo = document.querySelector(`.casasPromover img[alt*='cavalo ${jogador[turno]}']`);
+  const bispoPromo = document.querySelector(`.casasPromover img[alt*='bispo ${jogador[turno]}']`);
+  const rainhaPromo = document.querySelector(`.casasPromover img[alt*='rainha ${jogador[turno]}']`);
+
+  torrePromo.addEventListener("click", function () {
+    promoverPeao(torrePromo, casa);
+  
+    
+  });
+
+  cavaloPromo.addEventListener("click", function () {
+    promoverPeao(cavaloPromo, casa);
+ 
+
+  });
+
+  bispoPromo.addEventListener("click", function () {
+    promoverPeao(bispoPromo, casa);
+   
+ 
+  });
+
+  rainhaPromo.addEventListener("click", function () {
+    promoverPeao(rainhaPromo, casa);
+    
+  });
+}
+
+function promoverPeao(pecaEscolhida, casa){
+
+  
+  casa.removeChild(casa.querySelector("img"));
+  casa.appendChild(pecaEscolhida.cloneNode(true));
+ 
+  divPromocao.style.display = "none";
+  
+  
+  verificaEstadoJogo();
+   
+ 
+
+
+}
