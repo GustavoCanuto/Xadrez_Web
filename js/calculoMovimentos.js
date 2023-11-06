@@ -104,6 +104,8 @@ function calcularPossiveisMovimentosPeao(casa) {
 
   const novaLinha = linha + direcao;
 
+ 
+
   if (novaLinha >= 1 && novaLinha <= 8) {
 
     const novaCasaID = coluna + novaLinha;
@@ -140,7 +142,7 @@ function calcularPossiveisMovimentosPeao(casa) {
     }
   }
 
-
+ 
   const diagonalDireita = letras.indexOf(coluna) + 1;
 
   if (diagonalDireita < letras.length) {
@@ -153,6 +155,9 @@ function calcularPossiveisMovimentosPeao(casa) {
       possiveisMovimentos.push(novaCasaID);
     }
   }
+
+  
+
 
   return possiveisMovimentos;
 

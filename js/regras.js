@@ -21,9 +21,6 @@ function isCheck(corDoRei) {
 
       possiveisMovimentos = calculoPosicoes[numeroFuncao](casa);
 
-     
-
-
       if (possiveisMovimentos.includes(reiPosicao)) {
 
         return true;
@@ -46,7 +43,7 @@ function procurarRei(cor) {
       return casa.id;
     }
   }
-
+ console.log("erro");
   return null;
 }
 
@@ -63,17 +60,24 @@ function movimentosValidosEmCheck(possiveisMovimentos, casa) {
 
 
     const pecaDestino = casaDestino.querySelector("img");
-
+   
     const casaOrigem = casa;
     const pecaOrigem = casa.querySelector("img");
+
+
     casaOrigem.removeChild(pecaOrigem);
+
+    if (pecaDestino) {
+      casaDestino.removeChild(pecaDestino);
+    }
+
     casaDestino.appendChild(pecaOrigem);
 
 
     if (!isCheck(jogador[turno])) {
       movimentosProtegemRei.push(id);
     }
-
+    console.log(movimentosProtegemRei);
 
     casaDestino.removeChild(pecaOrigem);
     casaOrigem.appendChild(pecaOrigem);
@@ -180,3 +184,5 @@ function promoverPeao(pecaEscolhida, casa){
 
 
 }
+
+

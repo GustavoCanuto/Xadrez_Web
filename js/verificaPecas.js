@@ -26,7 +26,7 @@ function removeTodasMarcacoes(casas) {
       pecaQueCaptura.classList.remove("selecionada");
     }
 
-    
+
 
   }
 
@@ -62,6 +62,9 @@ function verificaPeca(pecaSelecionada) {
   }
   else if (peca.includes("peão")) {
     pontuacao = 1;
+
+
+
     return 5;
   }
 
@@ -112,15 +115,70 @@ function verificaEstadoJogo() {
     alert("Empate por afogamento!");
   }
 
+
+
+
 }
 
-function atualizarInformacoesJogo() {
+function verificarEnPassant(casa) {
+  const linhaCasaOrigem = parseInt(casaSelecionada.id[1]);
+  const linhaCasaDestino = parseInt(casa.id[1]);
+  let pecaEsquerda = null;
+  let pecaDireita = null;
+  let casaDireitaId ;
+  let casaEsquerdaId;
 
-  const spanVezJogador = document.getElementById("valorVezJogador");
-  const spanPontuacaoPretas = document.getElementById("valorPontuacaoPretas");
-  const spanPontuacaoBrancas = document.getElementById("valorPontuacaoBrancas");
+  if (pecaSelecionada.alt.includes("peão") && ((linhaCasaOrigem === 7) || (linhaCasaOrigem === 2)) && ((linhaCasaDestino === 4) || (linhaCasaDestino === 5))) {
+    const colunaCasaDestino = casa.id[0];
+    const colunaEsquerda = letras[letras.indexOf(colunaCasaDestino) - 1];
+    const colunaDireita = letras[letras.indexOf(colunaCasaDestino) + 1];
 
-  spanVezJogador.textContent = jogador[turno];
-  spanPontuacaoPretas.textContent = pontuacaoPretas;
-  spanPontuacaoBrancas.textContent = pontuacaoBrancas;
+   
+    if (colunaEsquerda && colunaEsquerda >= 'a') {
+       casaEsquerdaId = colunaEsquerda + linhaCasaDestino;
+      const casaEsquerda = document.getElementById(casaEsquerdaId);
+      pecaEsquerda = casaEsquerda.querySelector("img");
+    }
+
+  
+    if (colunaDireita && colunaDireita <= 'h') {
+       casaDireitaId = colunaDireita + linhaCasaDestino;
+      const casaDireita = document.getElementById(casaDireitaId);
+      pecaDireita = casaDireita.querySelector("img");
+    }
+  }
+
+  if (pecaEsquerda ) {
+
+    let corOposta = casaSelecionada.querySelector("img").alt.includes("brancas") ? "pretas" : "brancas";
+
+    if (pecaEsquerda.alt.includes(`peão ${corOposta}`)) {
+      casasQuePodeFazerEnPassant.push(casaEsquerdaId);
+      casaQuePodeLevarEnPassant = casa.id;
+
+     EnPassantAtivo = true;
+      
+    }
+
+  } else if (pecaDireita ) {
+    let corOposta = casaSelecionada.querySelector("img").alt.includes("brancas") ?  "pretas" : "brancas";
+    if (pecaDireita.alt.includes(`peão ${corOposta}`)) {
+      casasQuePodeFazerEnPassant.push(casaDireitaId);
+      casaQuePodeLevarEnPassant = casa.id;
+ 
+     EnPassantAtivo = true;
+     
+    }
+  }
 }
+
+  function atualizarInformacoesJogo() {
+
+    const spanVezJogador = document.getElementById("valorVezJogador");
+    const spanPontuacaoPretas = document.getElementById("valorPontuacaoPretas");
+    const spanPontuacaoBrancas = document.getElementById("valorPontuacaoBrancas");
+
+    spanVezJogador.textContent = jogador[turno];
+    spanPontuacaoPretas.textContent = pontuacaoPretas;
+    spanPontuacaoBrancas.textContent = pontuacaoBrancas;
+  }

@@ -8,6 +8,11 @@ let jogador = ["brancas", "pretas"];
 let turno = 0;
 let possiveisMovimentos = [];
 let pecaQueCaptura;
+let casasQuePodeFazerEnPassant = [];
+let casaQuePodeLevarEnPassant;
+let casaAtaquePassant;
+let EnPassantAtivo = false;
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -54,6 +59,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
       else if (casa.classList.contains("movimento-possivel")) {
 
+
+        if(casaAtaquePassant == casa.id && pecaSelecionada.alt.includes("peão")){
+          const casaCapturada = document.getElementById(casaQuePodeLevarEnPassant);
+          const pecaCapituradaPassant = casaCapturada.querySelector("img");
+          casaCapturada.removeChild(pecaCapituradaPassant);
+        }
+
+        verificarEnPassant(casa);
         casaSelecionada = casa;
         casa.appendChild(pecaSelecionada);
         pecaSelecionada.classList.remove("selecionada");
@@ -61,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         verificarPromocaoPeao(casa, pecaSelecionada );
         removeTodasMarcacoes(casas);
         trocaTurno();
+        
         verificaEstadoJogo();
         atualizarInformacoesJogo();
       
@@ -81,11 +95,36 @@ document.addEventListener("DOMContentLoaded", function () {
 
         numeroFuncao = verificaPeca(pecaSelecionada);
 
-        const possiveisMovimentos = calculoPosicoes[numeroFuncao](casa);
+         possiveisMovimentos = calculoPosicoes[numeroFuncao](casa);
 
-        const possiveisMovimentos2 = movimentosValidosEmCheck(possiveisMovimentos, casa);
 
-        possiveisMovimentos2.forEach(function (id) {
+         if(casasQuePodeFazerEnPassant.includes(casa.id)){
+
+          let linhaCasaPecaAmeacadaPassant = parseInt(casaQuePodeLevarEnPassant[1]);
+
+          if(linhaCasaPecaAmeacadaPassant == 4){
+          
+           linhaCasaPecaAmeacadaPassant -= 1;
+         }
+          else if (linhaCasaPecaAmeacadaPassant == 5){
+      
+            linhaCasaPecaAmeacadaPassant += 1;
+          }
+
+          casaAtaquePassant = casaQuePodeLevarEnPassant[0] + linhaCasaPecaAmeacadaPassant;
+
+          const casaPossivelPassant = document.getElementById(casaAtaquePassant);
+          
+          possiveisMovimentos.push(casaAtaquePassant);
+
+       }
+
+
+        const possiveisMovimentosVerificados = movimentosValidosEmCheck(possiveisMovimentos, casa);
+       
+      
+
+        possiveisMovimentosVerificados.forEach(function (id) {
 
           const casa = document.getElementById(id);
 
@@ -93,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             casa.classList.add("movimento-possivel");
 
+            
           }
         }
         );
